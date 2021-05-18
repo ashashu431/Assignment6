@@ -1,0 +1,229 @@
+1)FOR public and private access specifiers
+package demo1;
+public class person 
+{
+private String name;
+public String str;
+public String getStr() {
+	return str;
+}
+public void setStr(String str) {
+	this.str = str;
+}
+public String getName()
+ {
+	return name;
+}
+public void setName(String name) 
+{
+	this.name = name;
+}
+}
+-------
+package demo1;
+
+public class mainperson 
+{
+public static void main(String[] args)
+{
+	person obj=new person();
+	obj.setName("ASH");
+	System.out.println(obj.getName());
+	obj.str="hello";
+	System.out.println(obj.str);
+}
+}
+--------
+output:
+ASH
+hello
+-----------------------------------------
+b) for protected access specifier
+
+package demo1;
+
+public class Animal {
+protected void display()
+{
+	System.out.println("this is a animal");
+}
+}
+class dog extends Animal
+{
+	public static void main(String[] args)
+	{
+		dog d=new dog();
+		d.display();	
+	}
+}
+---
+output:
+this is a animal
+----------------------------------------------------------
+2) hierarchical inheritance
+
+package demo1;
+
+ class School
+ {
+ void playclass()
+ {
+ System.out.println("baby sitting to ukg");
+ }
+ }
+ class primary extends School
+  {
+	 void primar()
+  {
+  System.out.println("from 1st std to 6th");
+  }
+  }
+  class high extends primary
+  {
+  void highschool()
+  {
+  System.out.println("from 7th to 10th");
+  }
+  }
+ --
+package demo1;
+
+class hy 
+{
+	  public static void main(String[] args)
+	  {
+		  high h=new high();
+		  h.highschool();
+		  h.primar();
+		  h.playclass();
+	  }
+  }
+-----
+output:
+from 7th to 10th
+from 1st std to 6th
+baby sitting to ukg
+---------------------------------------------
+b)Single inheritance
+
+public class single
+{
+  public void methodA()
+  {
+	  System.out.println("parent class");
+  }
+}
+class B extends single
+{
+	public void methodB()
+	{
+		System.out.println("subclass");
+	}
+
+public static void main(String[] args)
+{
+	B object=new B();
+	object.methodA();
+	object.methodB();
+}
+}
+-------output:
+parent class
+subclass
+------------------------------------------------
+c)Multilevel inheritance
+
+public class single
+{
+  public void first()
+  {
+	  System.out.println("first method");
+  }
+}
+class doubles extends single
+{
+	public void second()
+	{
+		System.out.println("class double");
+	}
+	class thrice extends doubles
+	{
+		public void third()
+		{
+			System.out.println("class thrice ");
+		}
+	}
+public static void main(String[] args)
+{
+	doubles object=new doubles();
+	object.first();
+	object.second();
+        object.thrice();
+}
+}
+--------output:
+first method
+class double
+class thrice
+------------------------------------------------
+d)hybrid inheritance
+class A:
+package demo1;
+
+public class classA 
+{
+ public void displayA()
+ {
+	 System.out.println("method of classA");
+ }
+}
+
+interface B:
+package demo1;
+
+public interface intefaceB 
+{
+ public void show();
+}
+
+interface C:
+package demo1;
+
+public interface interfaceC
+{
+public void show();
+}
+
+classD:
+package demo1;
+
+public class classD extends classA implements intefaceB,interfaceC
+{
+	public void show() {
+		System.out.println("show method of implementation");	
+	}
+	public void disp()
+	{
+		System.out.println("disp method of class D");
+	}
+}
+
+mainclass:
+package demo1;
+
+public class hyb {
+public static void main(String[] args)
+{
+	classD d=new classD();
+	d.disp();
+	d.show();
+	d.displayA();
+}
+}
+
+
+
+
+
+
+
